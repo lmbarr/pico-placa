@@ -1,0 +1,36 @@
+<!-- based on https://github.com/mjhea0/thinkful-mentor/blob/master/python/jinja/flask_example/templates/template.html-->
+<html>
+  <head>
+    <title>Pico y placa predictor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/template.css') }}">
+  </head>
+  <body>
+    <div>
+      <div class="container">
+        <form id="contact" action="{{ url_for('predict') }}" method="post">
+          <h3>Predictor de circulacion</h3>
+          <h4>Mis datos de circulacion:</h4>
+          <fieldset>
+            Fecha de circulacion
+            <input type="date" name="circulationDate" required>
+          </fieldset>
+          <fieldset>
+            Hora de circulacion
+            <input type="time" name="circulationTime" required>
+          </fieldset>
+          <fieldset>
+            Numero de placa
+            <input type="text" name="plateNumber" placeholder="Escribe tu numero de placa...." required>
+          </fieldset>
+          <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
