@@ -9,6 +9,7 @@ v = {editable = true,version = "*"}
 pylint = "*"
 pylint-fail-under = "*"
 sphinx = "*"
+pytest-cov = "*"
 
 [packages]
 flask = "*"
