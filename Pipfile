@@ -6,6 +6,9 @@ verify_ssl = true
 [dev-packages]
 pytest = "*"
 v = {editable = true,version = "*"}
+pylint = "*"
+pylint-fail-under = "*"
+sphinx = "*"
 
 [packages]
 flask = "*"

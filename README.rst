@@ -1,6 +1,6 @@
 # Pico y Placa Predictor
 
-This repository based on the date, time and license plate number tells the users if their cars can or can not be on the road.
+This repository based on the date, time and license plate number tells the users if their cars can or can not be on the road according to the restrictions of the Municipality.
 
 ## Setup Process
 
@@ -25,3 +25,7 @@ To install a new package for dependency (production) purposes run:
 ```
 pipenv install package_name
 ```
+## Running locally
+You can deploy the flask server locally by running the following command:
+
+`python3.7 src/index.py`

@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+      docker: 18
+
+  pre_build:
+    commands:
+      - echo Installing pipenv...
+      - python3 -m pip install pipenv
+      - export PIPENV_VENV_IN_PROJECT="enabled"
+  build:
+    commands:
+      - echo Build started on `date`
+      - cd $CODEBUILD_SRC_DIR
+      - pipenv install --dev
+      - echo Testing code style
+      - pylint-fail-under --fail_under 6.0 /src
+      - echo Running unit test...
+      - pipenv run python3 -m pytest
+      - echo Try automated deployments...
+      - chmod +x cd-codebuild.sh
+      - ./cd-codebuild.sh

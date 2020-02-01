@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request
-
+import main
 app = Flask(__name__)
 
 
@@ -13,10 +13,9 @@ def predict():
     date = request.form['circulationDate']
     time = request.form['circulationTime']
     plate_number = request.form['plateNumber']
-
-    print(type(date), date)
-    print(type(time), time)
-    return render_template('response.html', response="Vehiculo no puede circular")
+    print(date, time, plate_number)
+    response = main.can_be_on_the_road(date, time, plate_number)
+    return render_template('response.html', response=response)
 
 
 if __name__ == '__main__':
