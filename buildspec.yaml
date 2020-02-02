@@ -17,7 +17,7 @@ phases:
       - cd $CODEBUILD_SRC_DIR
       - pipenv install --dev
       - echo Testing code style
-      - pylint-fail-under --fail_under 6.0 /src
+      - pylint-fail-under --fail_under 6.0 src/
       - echo Running unit test...
       - pipenv run python3 -m pytest
       - echo Try automated deployments...
