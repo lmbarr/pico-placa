@@ -1,3 +1,9 @@
+"""
+    plate_number.py
+    -------------------
+    This python module contains all the logic related to a Plate number from Ecuador.
+"""
+
 import re
 
 

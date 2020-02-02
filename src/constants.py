@@ -1,3 +1,8 @@
+"""
+    constants.py
+    -------------
+    This python module contains all the specifics about the pico y placa logic.
+"""
 from enum import Enum, auto
 from datetime import time
 
@@ -12,6 +17,7 @@ Days = {'MONDAY': (1, 2),
 class ForbiddenTimeRanges(Enum):
     FIRST_RANGE = (time(7, 0), time(9, 30))
     SECOND_RANGE = (time(16, 0), time(19, 30))
+
 
 class PlateTypes(Enum):
     COMERCIAL = auto()

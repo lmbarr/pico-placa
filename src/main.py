@@ -1,12 +1,25 @@
-import plate_number
+"""
+    main.py
+    --------------
+    This python module is the first layer of all the logic and at a high level
+    determine if a vehicule can circulate or not.
+"""
+from src.plate_number import PlateNumber
 from datetime import datetime, time
 import time
-from .constants import PlateTypes, ForbiddenTimeRanges, Days
+from src.constants import PlateTypes, ForbiddenTimeRanges, Days
 
 
 def can_be_on_the_road(date_, time_, plate_number):
+    """
+    This function determined at a high level if a vehicle can or can not be on the roads of Quito.
+    :param date_: The string date that we get from the templates/template.html page
+    :param time_: The string time that we get from the templates/template.html page
+    :param plate_number: The string license plate number that we get from the templates/template.html page
+    :return: The string message to be rendered in the templates/response.html
+    """
 
-    if plate_number.PlateNumber.is_a_valid_plate_number(plate_number):
+    if PlateNumber.is_a_valid_plate_number(plate_number):
         plate_number = plate_number.PlateNumber(plate_number)
         date_ = datetime(*date_.split('-'))
         time_ = time(*time_.split(':'))

@@ -25,12 +25,19 @@ To install a new package for dependency (production) purposes run::
 
 Running locally
 ================================================
+
 You can deploy the flask server locally by running the following command::
 
-    python3.7 src/pico-placa/index.py
+    python3.7 src/index.py
 
 Documentation
 ================================================
-This project is using sphinx for documentation purposes.
 
-You can check the documentation on github pages: http://docutils.sf.net/
+This project is using sphinx for documentation purposes.
+To generate the documentation based on the docstrings comments::
+
+    sphinx-apidoc -o docs src/
+    cd docs/
+    make clean html
+
+The last command will create a _build/ folder inside docs/ with all the documentation in html format.
