@@ -17,7 +17,7 @@ def can_be_on_the_road(date_, time_, plate_number):
     :param plate_number: The string license plate number that we get from the templates/template.html page
     :return: The string message to be rendered in the templates/response.html
     """
-
+    print(PlateNumber.is_a_valid_plate_number(plate_number))
     if PlateNumber.is_a_valid_plate_number(plate_number):
         plate_number = PlateNumber(plate_number)
         date_ = datetime(*[int(num) for num in date_.split('-')])
@@ -32,6 +32,14 @@ def can_be_on_the_road(date_, time_, plate_number):
 
 
 def is_allowed_to_circulate(plate_number, date_, time_):
+    """
+    This function determines if a vehicle can move around according to
+    the type of license plate.
+    :param plate_number: The plate number as an PlateNumber object
+    :param date_: The date as a python date object
+    :param time_: The time as a python time object
+    :return: boolean
+    """
     if plate_number.get_type() is not PlateTypes.PARTICULAR:
         return True
     else:
@@ -40,4 +48,9 @@ def is_allowed_to_circulate(plate_number, date_, time_):
 
 
 def is_time_inside_a_forbidden_range(time_):
-    return any(range_[0] <= time_ <= range[1] for range_ in ForbiddenTimeRanges)
+    """
+    This function checks if a time is inside any of the restricted ranges.
+    :param time_: The time as a python time object.
+    :return: boolean
+    """
+    return any(range_.value[0] <= time_ <= range_.value[1] for range_ in list(ForbiddenTimeRanges))

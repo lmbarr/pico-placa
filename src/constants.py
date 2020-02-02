@@ -3,11 +3,11 @@
     -------------
     This python module contains all the specifics about the pico y placa logic.
 """
-from enum import Enum, auto
+from enum import Enum
 from datetime import time
 from string import ascii_uppercase
 
-Days = {'MONDAY': (1, 2),
+Days = {'Monday': (1, 2),
         'Tuesday': (3, 4),
         'Wednesday': (5, 6),
         'Thursday': (7, 8),
