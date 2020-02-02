@@ -20,7 +20,7 @@ def can_be_on_the_road(date_, time_, plate_number):
     """
 
     if PlateNumber.is_a_valid_plate_number(plate_number):
-        plate_number = plate_number.PlateNumber(plate_number)
+        plate_number = PlateNumber(plate_number)
         date_ = datetime(*date_.split('-'))
         time_ = time(*time_.split(':'))
 

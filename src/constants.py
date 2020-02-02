@@ -5,7 +5,7 @@
 """
 from enum import Enum, auto
 from datetime import time
-
+from string import ascii_uppercase
 
 Days = {'MONDAY': (1, 2),
         'Tuesday': (3, 4),
@@ -20,11 +20,10 @@ class ForbiddenTimeRanges(Enum):
 
 
 class PlateTypes(Enum):
-    COMERCIAL = auto()
-    GUBERNAMENTAL = auto()
-    DE_USO_OFICIAL = auto()
-    GOBIERNO_AUTONOMO = auto()
-    PARTICULAR = auto()
-    SERVICIO_DIPLOMATICO = auto()
-    INTERNACION_TEMPORAL = auto()
-
+    COMERCIAL = {'A', 'U', 'Z'}
+    GUBERNAMENTAL = {'E'}
+    DE_USO_OFICIAL = {'X'}
+    GOBIERNO_AUTONOMO = {'M'}
+    PARTICULAR = set(ascii_uppercase) - (COMERCIAL + GUBERNAMENTAL + DE_USO_OFICIAL + GOBIERNO_AUTONOMO)
+    SERVICIO_DIPLOMATICO = {'CC', 'CD', 'OI', 'AT'}
+    INTERNACION_TEMPORAL = {'IT'}
