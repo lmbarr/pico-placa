@@ -6,7 +6,6 @@
 """
 from src.plate_number import PlateNumber
 from datetime import datetime, time
-import time
 from src.constants import PlateTypes, ForbiddenTimeRanges, Days
 
 
@@ -21,13 +20,13 @@ def can_be_on_the_road(date_, time_, plate_number):
 
     if PlateNumber.is_a_valid_plate_number(plate_number):
         plate_number = PlateNumber(plate_number)
-        date_ = datetime(*date_.split('-'))
-        time_ = time(*time_.split(':'))
+        date_ = datetime(*[int(num) for num in date_.split('-')])
+        time_ = time(*[int(num) for num in time_.split(':')])
 
         if is_allowed_to_circulate(plate_number, date_, time_):
-            return f"Vehiculo con placas {plate_number} en la fecha {date_} y hora {time_} puede circular"
+            return f"Vehiculo con placas {plate_number.plate_number} en la fecha {date_.strftime('%m/%d/%Y')} y hora {time_} puede circular"
         else:
-            return f"Vehiculo con placas {plate_number} en la fecha {date_} y hora {time_} no puede circular"
+            return f"Vehiculo con placas {plate_number.plate_number} en la fecha {date_.strftime('%m/%d/%Y')} y hora {time_} no puede circular"
     else:
         return "Placa invalida"
 
