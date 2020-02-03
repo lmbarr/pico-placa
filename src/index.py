@@ -27,7 +27,6 @@ def predict():
     date = request.form['circulationDate']
     time = request.form['circulationTime']
     plate_number = request.form['plateNumber']
-    print(date, time, plate_number)
     response = can_be_on_the_road(date, time, plate_number)
     return render_template('response.html', response=response)
 

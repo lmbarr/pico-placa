@@ -17,7 +17,6 @@ def can_be_on_the_road(date_, time_, plate_number):
     :param plate_number: The string license plate number that we get from the templates/template.html page
     :return: The string message to be rendered in the templates/response.html
     """
-    print(PlateNumber.is_a_valid_plate_number(plate_number))
     if PlateNumber.is_a_valid_plate_number(plate_number):
         plate_number = PlateNumber(plate_number)
         date_ = datetime(*[int(num) for num in date_.split('-')])
@@ -40,7 +39,6 @@ def is_allowed_to_circulate(plate_number, date_, time_):
     :param time_: The time as a python time object
     :return: boolean
     """
-    print(plate_number.get_type())
     if plate_number.get_type() is not PlateTypes.PARTICULAR:
         return True
     else:
